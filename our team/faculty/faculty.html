@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty - Jeevan Kaushal Club</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- HEADER & NAVBAR STYLES (INCLUDING NEW ARROW) --- */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Adds space between the arrow and the logo */
+        }
+
+        .nav-back-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2em;
+            color: #109c91; /* Theme color */
+            text-decoration: none;
+            border-radius: 50%;
+            background-color: #f0f7f7;
+            border: 1px solid #e1e8ed;
+            transition: all 0.3s ease;
+        }
+
+        .nav-back-arrow:hover {
+            background-color: #109c91; /* Theme color */
+            color: #fff;
+            transform: scale(1.1);
+            border-color: #109c91;
+        }
+
+        /* CSS for the flipping effect */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        .team-card {
+            background-color: transparent;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            height: 350px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .team-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .team-card:hover .team-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .team-card-front,
+        .team-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            box-sizing: border-box;
+        }
+
+        .team-card-front {
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        .team-card-front h3 {
+            color: #222;
+            margin-top: 0.5rem; 
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .team-card-back {
+            background-color: #109c91;
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .team-card-back a {
+            color: white;
+            text-decoration: underline;
+            margin-top: 1rem;
+        }
+
+        .team-avatar img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid #109c91;
+        }
+
+        .team-card p.team-role {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 0.3rem;
+        }
+        
+        .team-card-back h3, .team-card-back p {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="navbar-brand">
+                    <a href="../../INDEX.html#team" class="nav-back-arrow" title="Back to Team Page">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                    <div class="logo">
+                        <img src="../../images/jk.jpg" width="100" height="75" alt="KITS Logo" style="border-radius: 50px;">
+                        <span>Jeevan Kaushal Club</span>
+                    </div>
+                </div>
+                <ul class="navbar-menu">
+                    <li><a href="../../INDEX.html" class="nav-link">Home</a></li>
+                    <li><a href="../../INDEX.html#about" class="nav-link">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="team" class="team">
+            <div class="container">
+                <div class="section-header" style="padding-top: 40px;">
+                    <h2>Heads & Core Faculty</h2>
+                    <p>The guiding force behind the Jeevan Kaushal Club.</p>
+                    </div>
+                
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-card-inner">
+                            <div class="team-card-front">
+                                <div class="team-avatar">
+                                    <img src="faculty-images/chairman.png" alt="Photo of Sri Koye Subba Rao">
+                                </div>
+                                <h3>Sri Koye Subba Rao</h3>
+                                <p class="team-role">The chairman of kits college</p>
+                            </div>
+                            <div class="team-card-back">
+                                <h3>Sri Koye Subba Rao</h3>
+                                <p>Email: subbarao@kits.edu</p>
+                                <p>Phone: +91 98765 43210</p>
+                                <a href="faculty-details.html?name=subbarao">View Profile →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-card-inner">
+                            <div class="team-card-front">
+                                <div class="team-avatar">
+                                    <img src="faculty-images/sec.png" alt="Photo of Sri Koyi Sekhar">
+                                </div>
+                                <h3>Sri Koyi Sekhar</h3>
+                                <p class="team-role">Secretary of kits clg</p>
+                            </div>
+                            <div class="team-card-back">
+                                <h3>Sri Koyi Sekhar</h3>
+                                <p>Email: koyisek@kits.edu</p>
+                                <p>Phone: +91 98765 43211</p>
+                                <a href="faculty-details.html?name=koyisek">View Profile →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-card-inner">
+                            <div class="team-card-front">
+                                <div class="team-avatar">
+                                    <img src="faculty-images/directorphoto.jpg" alt="Photo of Dr. K. Hari Babu">
+                                </div>
+                                <h3>Sri K. Hari Babu</h3>
+                                <p class="team-role">Academic Director</p>
+                            </div>
+                            <div class="team-card-back">
+                                <h3>Sri K. Hari Babu</h3>
+                                <p>Email: subbarao@kits.edu</p>
+                                <p>Phone: +91 98765 43210</p>
+                                <a href="faculty-details.html?name=haribabu">View Profile →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-card-inner">
+                            <div class="team-card-front">
+                                <div class="team-avatar">
+                                    <img src="faculty-images/principalphoto.jpg" alt="Photo of Dr. P. Babu">
+                                </div>
+                                <h3>Dr. P. Babu</h3>
+                                <p class="team-role">Principal</p>
+                            </div>
+                            <div class="team-card-back">
+                                <h3>Dr. P. Babu</h3>
+                                <p>Email: subbarao@kits.edu</p>
+                                <p>Phone: +91 98765 43210</p>
+                                <a href="faculty-details.html?name=pbabu">View Profile →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-card-inner">
+                            <div class="team-card-front">
+                                <div class="team-avatar">
+                                    <img src="faculty-images/arvind.png" alt="Photo of Dr. Arvind sir">
+                                </div>
+                                <h3>Dr. Arvind sir</h3>
+                                <p class="team-role">Head jk club</p>
+                            </div>
+                            <div class="team-card-back">
+                                <h3>Dr. Arvind sir</h3>
+                                <p>Email: arvind@kits.edu</p>
+                                <p>Phone: +91 98765 43212</p>
+                                <a href="faculty-details.html?name=arvind">View Profile →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-card-inner">
+                            <div class="team-card-front">
+                                <div class="team-avatar">
+                                    <img src="faculty-images/ravikumar.png" alt="Photo of Ravi Kumar">
+                                </div>
+                                <h3>Ravi kumar sir</h3>
+                                <p class="team-role">Faculty Co-ordinator</p>
+                            </div>
+                            <div class="team-card-back">
+                                <h3>Ravi kumar</h3>
+                                <p>Email: arvind@kits.edu</p>
+                                <p>Phone: +91 98765 43212</p>
+                                <a href="faculty-details.html?name=ravikumar">View Profile →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Jeevan Kaushal Club, KITS Guntur. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

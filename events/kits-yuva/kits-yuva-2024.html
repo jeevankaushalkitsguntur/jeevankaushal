@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KITS YUVA - A Grand Celebration | Jeevan Kaushal Club</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- NEW COLOR PALETTE & CORE STYLES --- */
+        :root {
+            --primary-color: #109c91;      /* Teal-Green */
+            --secondary-color: #f57c00;    /* Warm Orange */
+            --accent-color: #6a1b9a;       /* Deep Purple */
+            --bg-white: #ffffff;
+            --bg-light-gray: #f9f9f9;
+            --text-heading: #111111;
+            --text-body: #333333;
+            --text-muted: #666666;
+            --shadow-light: rgba(0,0,0,0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--bg-light-gray); /* Using light gray for main background */
+            color: var(--text-body);
+        }
+
+        h2, h3, h4 {
+            color: var(--text-heading);
+        }
+        
+        p {
+            color: var(--text-body);
+        }
+
+        /* --- HEADER & NAVBAR STYLES --- */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px var(--shadow-light);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-back-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2em;
+            color: var(--primary-color); /* Updated */
+            text-decoration: none;
+            border-radius: 50%;
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 8px var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+
+        .nav-back-arrow:hover {
+            background-color: var(--primary-color); /* Updated */
+            color: var(--bg-white);
+            transform: scale(1.1);
+        }
+
+        /* --- UPDATED: Gallery Item with Hover Effect --- */
+        .gallery-item {
+            height: 250px;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px var(--shadow-light);
+            position: relative; /* For the shine effect */
+            transition: transform 0.3s ease, box-shadow 0.4s ease; /* Smooth transition */
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* New Highlight and Animation on Hover */
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.03); /* Lift and slightly enlarge */
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15); /* Deeper shadow */
+        }
+
+        /* Shine Animation Effect */
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 75%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+            transform: skewX(-25deg);
+            transition: left 0.7s ease;
+        }
+
+        .gallery-item:hover::before {
+            left: 150%;
+        }
+
+        /* --- UPDATED: Flipping Guest Card Styles --- */
+        .guest-section {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px; margin-bottom: 50px;
+        }
+        .guest-card {
+            background-color: transparent; perspective: 1000px; height: 300px;
+        }
+        .guest-card-inner {
+            position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d;
+        }
+        .guest-card:hover .guest-card-inner {
+            transform: rotateY(180deg);
+        }
+        .guest-card-front, .guest-card-back {
+            position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 10px; box-shadow: 0 5px 15px var(--shadow-light);
+        }
+        .guest-card-front {
+            background-color: var(--bg-white); padding: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+        .guest-card-front img {
+            width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 4px solid var(--primary-color); /* Updated */
+        }
+        .guest-card-front h4, .guest-card-front p { margin: 0; }
+        .guest-card-back {
+            background-color: var(--primary-color); /* Updated */
+            color: white; transform: rotateY(180deg); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px;
+        }
+        .guest-card-back .quote-icon {
+            font-size: 2em; opacity: 0.5; margin-bottom: 10px;
+        }
+        .inauguration-image {
+            width: 100%; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.12); margin-top: 20px; margin-bottom: 40px;
+        }
+        
+        /* --- UPDATED: Styles for Activity Highlights --- */
+        .activity-highlight {
+            display: flex;
+            align-items: center;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            background: var(--bg-white);
+            gap: 30px;
+            overflow: hidden;
+        }
+        .activity-highlight:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .activity-description {
+            flex: 1;
+        }
+        .activity-description h4 {
+            color: var(--primary-color); /* Updated */
+            font-size: 1.5rem;
+            margin-top:0;
+        }
+        .activity-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .activity-description ul li {
+            margin-bottom: 10px;
+            display: flex;
+        }
+        .activity-description ul li i {
+            color: var(--secondary-color); /* Updated */
+            margin-right: 12px;
+            margin-top: 4px;
+        }
+        .activity-image {
+            width: 250px;
+            height: 200px;
+        }
+        .activity-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        /* Style for the "View Gallery" button */
+        .btn--gallery {
+            display: inline-block; margin-top: 15px; padding: 10px 20px; background-color: var(--secondary-color); color: var(--bg-white); text-decoration: none; border-radius: 25px; font-weight: bold; transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn--gallery:hover {
+            background-color: #d86c00; /* Darker orange on hover */
+            transform: translateY(-2px);
+        }
+        .btn--gallery i {
+            margin-right: 8px;
+        }
+
+        /* Gallery Styles */
+        .gallery-section {
+            padding-top: 60px; margin-top: -40px; margin-bottom: 10px; border-top: 2px solid #eee;
+        }
+        .gallery-section:first-of-type {
+            border-top: none;
+        }
+        .gallery-section h4 {
+            font-size: 1.8rem; color: var(--text-heading); margin-bottom: 20px; text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="navbar-brand">
+                    <a href="../../INDEX.html#events" class="nav-back-arrow" title="Back to All Events">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                    <div class="logo">
+                        <img src="../../images/jk.jpg" width="100" height="75" alt="KITS Logo" style="border-radius: 50px;">
+                        <i class="fas fa-users-cog"></i>
+                        <span>Jeevan Kaushal Club</span>
+                    </div>
+                </div>
+                <ul class="navbar-menu" id="navbar-menu">
+                     <li><a href="../../INDEX.html#home" class="nav-link">Home</a></li>
+                    <li><a href="../../INDEX.html#about" class="nav-link">About</a></li>
+                    <li><a href="../../INDEX.html#events" class="nav-link active">Events</a></li>
+                    <li><a href="../../INDEX.html#activities" class="nav-link">Activities</a></li>
+                    <li><a href="../../INDEX.html#team" class="nav-link">Team</a></li>
+                    <li><a href="../../INDEX.html#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="../../INDEX.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="event-page-content">
+        <section id="event-details">
+            <div class="container">
+                
+                <div class="section-header">
+                    <h2>KITS YUVA: A Grand Celebration</h2>
+                    <p>Our annual flagship festival, fostering talent, innovation, and community spirit.</p>
+                </div>
+                
+                <div class="event-body">
+                    <h3>Grand Inauguration & Esteemed Guests</h3>
+                    <p>Hover over our esteemed guests to see their key message for the students.</p>
+                    <div class="guest-section">
+                        <div class="guest-card">
+                            <div class="guest-card-inner">
+                                <div class="guest-card-front"><img src="kits-yuva-images/pemmasani.png" alt="Dr. Chandra Sekhar Pemmasani"><h4>Dr. Chandra Sekhar Pemmasani</h4><p>Minister of State</p></div>
+                                <div class="guest-card-back"><i class="fas fa-quote-left quote-icon"></i><h5>"Embrace innovation not just for personal success, but to uplift every corner of our nation."</h5></div>
+                            </div>
+                        </div>
+
+                        <div class="guest-card">
+                            <div class="guest-card-inner">
+                                <div class="guest-card-front">
+                                    <img src="kits-yuva-images/chandrabose.png" alt="Chandrabose, Oscar-winning lyricist">
+                                    <h4>Chandrabose</h4>
+                                    <p>Oscar-Winning Lyricist</p>
+                                </div>
+                                <div class="guest-card-back">
+                                    <i class="fas fa-quote-left quote-icon"></i>
+                                    <h5>"Lyrics should be easy to understand and connect with people quickly. That's my style."</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="guest-card">
+                            <div class="guest-card-inner">
+                                <div class="guest-card-front">
+                                    <img src="kits-yuva-images/suresh.png" alt="Mr. Suresh Garu">
+                                    <h4>Suresh Garu</h4>
+                                    <p>Motivational Speaker & Youth Mentor</p>
+                                </div>
+                                <div class="guest-card-back">
+                                    <i class="fas fa-quote-left quote-icon"></i>
+                                    <h5>"Your college years are the foundation. Build it with curiosity, courage, and a commitment to your dreams."</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="guest-card">
+                            <div class="guest-card-inner">
+                                <div class="guest-card-front"><img src="kits-yuva-images/pradeep.png" alt="Mr. Pradeep Machiraju"><h4>Mr. Pradeep Machiraju</h4><p>Renowned Actor & Anchor</p></div>
+                                <div class="guest-card-back"><i class="fas fa-quote-left quote-icon"></i><h5>"Your energy and confidence are your greatest assets. Bring passion to everything you do."</h5></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Inauguration Ceremony</h3>
+                    <p>The event was formally inaugurated by our chief guest, Dr. Chandra Sekhar Pemmasani, with the ceremonial lighting of the lamp. His inspiring address set a positive and energetic tone for the two-day festival.</p>
+                       <img src="kits-yuva-images/f1.png" alt="Inauguration at KITS YUVA" class="inauguration-image">
+
+                    <h3>Event Highlights & Showcases</h3>
+                    <p>YUVA 2K25 featured an impressive lineup of activities catering to all interests:</p>
+
+                    <div class="activity-highlight">
+                        <div class="activity-description">
+                                <h4><i class="fas fa-lightbulb"></i> Technical & Innovation</h4>
+                            <ul>
+                                <li><i class="fas fa-microchip"></i> Engaging contests to test problem-solving and programming skills..</li>
+                                <li><i class="fas fa-rocket"></i> Exciting hackathons conducted at the institute to promote real-time innovation and teamwork..</li>
+                                <li><i class="fas fa-project-diagram"></i>Activities like business plan presentations, start-up pitch battles, and management games for aspiring entrepreneurs.</li>
+                            </ul>
+                            <a href="#gallery-technical" class="btn btn--gallery"><i class="fas fa-images"></i> View Gallery</a>
+                        </div>
+                        <div class="activity-image">
+                               <img src="kits-yuva-images/prize.png" alt="Students with a technical project">
+                        </div>
+                    </div>
+
+                    <div class="activity-highlight">
+                        <div class="activity-description">
+                            <h4><i class="fas fa-palette"></i> Cultural Extravaganza</h4>
+                            <ul>
+                                <li><i class="fas fa-music"></i> High-octane dance and singing performances by talented students.</li>
+                                <li><i class="fas fa-walking"></i> Ramp Walk & Fashion Show displaying student creativity and style.</li>
+                                <li><i class="fas fa-feather-alt"></i> Literary competitions including poetry, debates, and JAM sessions.</li>
+                            </ul>
+                            <a href="#gallery-cultural" class="btn btn--gallery"><i class="fas fa-images"></i> View Gallery</a>
+                        </div>
+                        <div class="activity-image">
+                               <img src="kits-yuva-images/rampwalk.png" alt="Students on the ramp walk">
+                        </div>
+                    </div>
+
+                       <div class="activity-highlight">
+                        <div class="activity-description">
+                            <h4><i class="fas fa-microphone-alt"></i> Stage Moments</h4>
+                            <ul>
+                                <li><i class="fas fa-chalkboard-teacher"></i> Motivational speeches and words of wisdom from senior faculty.</li>
+                                <li><i class="fas fa-star"></i> Special appearances and entertaining shows by celebrity guests.</li>
+                                <li><i class="fas fa-award"></i> Award ceremonies recognizing outstanding student achievements.</li>
+                            </ul>
+                               <a href="#gallery-inauguration" class="btn btn--gallery"><i class="fas fa-images"></i> View Gallery</a>
+                        </div>
+                        <div class="activity-image">
+                               <img src="kits-yuva-images/chairmanspeech.png" alt="Dignitary speaking at the event">
+                        </div>
+                    </div>
+
+                    <div id="gallery-container">
+                        <h3>Event Gallery</h3>
+                        <section class="gallery-section" id="gallery-inauguration">
+                            <h4>Grand Inauguration & Stage Moments</h4>
+                            <div class="gallery-grid">
+                                 <div class="gallery-item"><img src="kits-yuva-images/speech1.png" alt="Chief Guest Dr. Pemmasani addressing the students"></div>
+                                <div class="gallery-item"><img src="kits-yuva-images/pm2.png" alt="Chief Guest Dr. Pemmasani addressing the students"></div>
+                                <div class="gallery-item"><img src="kits-yuva-images/g1.png" alt="Chief Guest Dr. Pemmasani addressing the students"></div>
+                                <div class="gallery-item"><img src="kits-yuva-images/f1.png" alt="Dignitaries lighting the ceremonial lamp"></div>
+                                <div class="gallery-item"><img src="kits-yuva-images/principal.png" alt="Principal delivering a speech"></div>
+                                <div class="gallery-item"><img src="kits-yuva-images/chairmanspeech.png" alt="Chairman addressing the event"></div>
+                                <div class="gallery-item"><img src="kits-yuva-images/director.png" alt="Director delivering a speech"></div>
+                            </div>
+                        </section>
+                        <section class="gallery-section" id="gallery-technical">
+                            <h4>Technical & Innovation Showcase</h4>
+                            <div class="gallery-grid">
+                                <div class="gallery-item"><img src="kits-yuva-images/p2.png" alt="Students presenting a project at the expo"></div>
+                                <div class="gallery-item"><img src="kits-yuva-images/p3.png" alt="Winners of the hackathon competition"></div>
+                                <div class="gallery-item"><img src="kits-yuva-images/p4.png" alt="A robotic demonstration by students"></div>
+                            </div>
+                        </section>
+                        <section class="gallery-section" id="gallery-cultural">
+                            <h4>Cultural Extravaganza</h4>
+                            <div class="gallery-grid">
+                                <div class="gallery-item"><img src="kits-yuva-images/d2.png" alt="Students performing a traditional dance"></div>
+                                <div class="gallery-item"><img src="kits-yuva-images/r4.png" alt="Students performing a traditional dance"></div>
+                                <div class="gallery-item"><img src="kits-yuva-images/r1.png" alt="Students participating in the ramp walk"></div>
+                                <div class="gallery-item"><img src="kits-yuva-images/r3.png" alt="Students participating in the ramp walk"></div>
+                                <div class="gallery-item"><img src="kits-yuva-images/r2.png" alt="A vibrant singing performance on stage"></div>
+                            </div>
+                        </section>
+                        <section class="gallery-section" id="gallery-campus">
+                            <h4>Campus Life & Vibe</h4>
+                            <div class="gallery-grid">
+                                <div class="gallery-item"><img src="kits-yuva-images/c1.png" alt="Students enjoying the event stalls"></div>
+                                <div class="gallery-item"><img src="kits-yuva-images/drone1.png" alt="An aerial drone shot of the campus during YUVA"></div>
+                                <div class="gallery-item"><img src="kits-yuva-images/c2.png" alt="A large crowd enjoying the festivities"></div>
+                            </div>
+                        </section>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Jeevan Kaushal Club, KITS Guntur. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../../app.js"></script>
+</body>
+</html>

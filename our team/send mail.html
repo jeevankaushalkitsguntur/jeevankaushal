@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Jeevan Kaushal Club</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="navbar-brand">
+                    <div class="logo"><img src="../images/jk.jpg" width="100" height="75" alt="KITS Logo" style="border-radius: 50px;"><span>Jeevan Kaushal Club</span></div>
+                </div>
+                <ul class="navbar-menu">
+                    <li><a href="INDEX.html" class="nav-link">Home</a></li>
+                    <li><a href="INDEX.html#about" class="nav-link">About</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="#" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact">
+            <div class="container">
+                <div class="contact-card">
+                    <h2>Send us a Message</h2>
+                    <form action="mailto:kitsjeevankoushal@gmail.com" method="POST" enctype="text/plain">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--solid">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Jeevan Kaushal Club, KITS Guntur. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
