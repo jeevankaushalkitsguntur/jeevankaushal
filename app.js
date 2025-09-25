@@ -474,3 +474,99 @@ if (document.readyState === 'loading') {
 console.log('%c🎓 Jeevan Kaushal Club - KITS Guntur', 'color: #218B8C; font-size: 16px; font-weight: bold;');
 console.log('%cEmpowering Students Through Life Skills Development', 'color: #626C71; font-size: 12px;');
 console.log('%cWebsite functionality enhanced! 🚀', 'color: #32B08C; font-size: 12px;');
+document.addEventListener('DOMContentLoaded', () => {
+
+    // ===============================================================
+    // == HOW TO UPDATE: Add your new quiz data to this array.     ==
+    // == Make sure the date format is YYYY-MM-DD.                 ==
+    // ===============================================================
+    const quizData = [
+        {
+            date: '2025-09-21',
+            topic: 'World Geography Challenge',
+            link: '#' // Replace with actual link
+        },
+        {
+            date: '2025-09-22',
+            topic: 'Science and Technology Quiz',
+            link: '#' // Replace with actual link
+        },
+        {
+            date: '2025-09-23',
+            topic: 'Modern History Trivia',
+            link: '#' // Replace with actual link
+        },
+        {
+            date: '2025-09-24',
+            topic: 'Daily Current Affairs Quiz',
+            link: '#' // Replace with actual link
+        }
+        // Add your next quiz here, for example:
+        // {
+        //     date: '2025-09-25',
+        //     topic: 'Indian Polity Fundamentals',
+        //     link: '#' 
+        // }
+    ];
+
+    // Get elements from the HTML
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    const quizDateEl = document.getElementById('quiz-date');
+    const quizContentEl = document.getElementById('quiz-content');
+
+    let currentIndex = 0;
+
+    // Function to display the quiz at a given index
+    function displayQuiz(index) {
+        const quiz = quizData[index];
+        
+        // Format the date for better readability
+        const dateObj = new Date(quiz.date + 'T00:00:00'); // Avoid timezone issues
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        quizDateEl.textContent = dateObj.toLocaleDateString('en-US', options);
+
+        // Create a link for the quiz topic
+        quizContentEl.innerHTML = `<a href="${quiz.link}" target="_blank">${quiz.topic}</a>`;
+        
+        // Update button states
+        prevBtn.disabled = (index === 0);
+        nextBtn.disabled = (index === quizData.length - 1);
+    }
+
+    // Event Listeners for buttons
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            displayQuiz(currentIndex);
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < quizData.length - 1) {
+            currentIndex++;
+            displayQuiz(currentIndex);
+        }
+    });
+    
+    // --- INITIALIZATION ---
+    // Find today's quiz or the most recent one
+    function initializeQuiz() {
+        const today = new Date();
+        const todayString = today.toISOString().split('T')[0]; // Format: YYYY-MM-DD
+        
+        const todayIndex = quizData.findIndex(q => q.date === todayString);
+
+        if (todayIndex !== -1) {
+            // Found a quiz for today
+            currentIndex = todayIndex;
+        } else {
+            // Default to the latest quiz if none for today
+            currentIndex = quizData.length - 1;
+        }
+        
+        displayQuiz(currentIndex);
+    }
+
+    initializeQuiz();
+});

@@ -105,109 +105,19 @@
             color: var(--muted-text);
         }
 
-        /* STYLES FOR CLUB SHOWCASE */
-        .club-showcase-container {
-            margin-top: 40px;
-        }
-        .club-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 40px;
-            background-color: #ffffff;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .club-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 77, 77, 0.12);
-        }
-        .club-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-        .club-image {
-            width: 250px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        .club-item:nth-child(odd) .club-image {
-            margin-right: 25px;
-        }
-        .club-item:nth-child(even) .club-image {
-            margin-left: 25px;
-        }
-        .club-description {
-            flex: 1;
-        }
-        .club-description h4 {
-            margin-top: 0;
-            font-size: 1.5rem;
-            color: var(--primary-dark);
-        }
-        .club-description .tagline {
-            font-style: italic;
-            color: var(--muted-text);
-            margin-bottom: 15px;
-            display: block;
-        }
-        .club-description ul {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 15px;
-        }
-        .club-description li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: flex-start;
-        }
-        .club-description li i {
-            color: var(--primary-color);
-            margin-right: 12px;
-            width: 20px;
-            margin-top: 4px;
-        }
-
-        /* Style for the "View Gallery" button */
-        .btn--gallery {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background-color: var(--primary-color);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .btn--gallery:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-        .btn--gallery i {
-            margin-right: 8px;
-        }
-
-        /* Styles for the gallery structure */
+        /* --- STYLES FOR THE CONSOLIDATED GALLERY --- */
         .gallery-section {
             padding-top: 60px; 
-            margin-top: -40px; 
+            margin-top: 40px; 
             margin-bottom: 50px; 
             border-top: 2px solid #e0e0e0;
         }
-        .gallery-section:first-of-type {
-            border-top: none;
-        }
-        .gallery-section h4 {
+        .gallery-section h3 {
             font-size: 1.8rem;
             color: var(--dark-text);
             margin-bottom: 25px;
             text-align: center;
         }
-
-        /* --- FIXED: Styles for Gallery Grid & Items --- */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -256,8 +166,9 @@
                     <li><a href="../../INDEX.html#events" class="nav-link active">Events</a></li>
                     <li><a href="../../INDEX.html#activities" class="nav-link">Activities</a></li>
                     <li><a href="../../INDEX.html#team" class="nav-link">Team</a></li>
-                    <li><a href="../../INDEX.html#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="../../INDEX.html#quiz" class="nav-link">Quiz Update</a></li>
                     <li><a href="../../INDEX.html#contact" class="nav-link">Contact</a></li>
+                    
                 </ul>
                 <button class="mobile-menu-toggle" id="mobile-menu-toggle">
                     <i class="fas fa-bars"></i>
@@ -277,13 +188,13 @@
                 
                 <div class="event-body">
                     <p>
-                        "The journey at KITS begins with our signature 'Zero Sem' orientation—a unique program organized entirely by the Jeevan Kaushal (JK) Club to seamlessly integrate new students into our college family. We take pride in leading this crucial transition, focusing on building your confidence, helping you forge new friendships, and introducing you to the vibrant campus culture. It's our way of ensuring you don't just join a college, but become part of a community."
+                        "The journey at KITS begins with our signature 'Zero Sem' orientation—a unique program organized entirely by the <strong>Jeevan Kaushal (JK) Club</strong> to seamlessly integrate new students into our college family. We take pride in leading this crucial transition, focusing on building your confidence, helping you forge new friendships, and introducing you to the vibrant campus culture. It's our way of ensuring you don't just join a college, but become part of a community."
                     </p>
                     
                     <h3>Guest Lectures & Expert Talks</h3>
                     <p>As part of the induction, we organize insightful guest lectures where experts from various fields share their knowledge and inspire our new students.</p>
 
-                       <div class="guest-lectures-container">
+                        <div class="guest-lectures-container">
                         
                         <div class="lecture-item">
                             <img src="induction-images/guest-lakshmaiah.jpg" alt="Mr. G. Lakshmaiah" class="lecture-image">
@@ -324,131 +235,25 @@
                                 <p>A powerful talk on <strong>"You Too Can Save Lives,"</strong> focused on equipping students with knowledge of first aid, emergency response, and the life-saving impact of blood donation.</p>
                             </div>
                         </div>
-                       </div>
-
-                    <h3>A Vibrant Club Culture</h3>
-                    <p>
-                        The induction program is the perfect platform for freshers to explore the diverse and dynamic club culture at KITS. It provides a unique opportunity for new students to discover a spectrum of interests, interact directly with senior members, and align with their personal and professional goals.
-                    </p>
-                    <div class="club-showcase-container">
-                        <div class="club-item">
-                            <img src="induction-images/images.png" alt="Jeevan Kaushal Club Event" class="club-image">
-                            <div class="club-description">
-                                <h4>Jeevan Kaushal Club</h4>
-                                <span class="tagline">"Nurturing Skills for Life."</span>
-                                <p>Our club is dedicated to the holistic development of students by equipping them with essential life skills, fostering leadership, and promoting personal growth outside the academic curriculum.</p>
-                                <ul>
-                                    <li><i class="fas fa-users"></i> Senior-Junior Interaction programs to guide and mentor new students.</li>
-                                    <li><i class="fas fa-chalkboard-teacher"></i> Organizing insightful Guest Lectures from industry experts and academicians.</li>
-                                    <li><i class="fas fa-graduation-cap"></i> Workshops on essential life skills for navigating college and future careers.</li>
-                                </ul>
-                                <a href="#gallery-jeevan-kaushal" class="btn btn--gallery"><i class="fas fa-images"></i> View Gallery</a>
-                            </div>
                         </div>
 
-                        <div class="club-item">
-                            <img src="induction-images/e-cell-event.jpg" alt="E-Cell Event" class="club-image">
-                            <div class="club-description">
-                                <h4>Entrepreneurship Cell (E-Cell)</h4>
-                                <span class="tagline">"Ideate. Innovate. Incubate."</span>
-                                <p>The E-Cell fosters a startup culture and provides students with the resources to transform their innovative ideas into viable business ventures. We focus on creating a complete ecosystem, from initial idea validation to mentorship from successful founders.</p>
-                                <ul>
-                                    <li><i class="fas fa-lightbulb"></i> Hosts idea pitching competitions and startup bootcamps.</li>
-                                    <li><i class="fas fa-users"></i> Connects students with a network of mentors, experts, and investors.</li>
-                                    <li><i class="fas fa-chart-line"></i> Conducts workshops on business planning, finance, and marketing.</li>
-                                </ul>
-                                <a href="#gallery-ecell" class="btn btn--gallery"><i class="fas fa-images"></i> View Gallery</a>
-                            </div>
-                        </div>
-
-                       <div class="club-item">
-                            <img src="induction-images/innovation-club-project.jpg" alt="Innovation Club Project" class="club-image">
-                            <div class="club-description">
-                                <h4>Innovation Club</h4>
-                                <span class="tagline">"Where Curiosity Meets Creation."</span>
-                                <p>The Innovation Club is where theoretical knowledge becomes tangible reality. We provide a platform for students to apply their engineering skills to real-world problems through hands-on, project-based learning in a collaborative environment.</p>
-                                <ul>
-                                    <li><i class="fas fa-tools"></i> Facilitates collaborative projects in fields like Robotics, AI, and IoT.</li>
-                                    <li><i class="fas fa-code"></i> Organizes competitive events like hackathons and coding challenges.</li>
-                                    <li><i class="fas fa-cogs"></i> Conducts technical workshops to build practical skills in new technologies.</li>
-                                </ul>
-                                <a href="#gallery-innovation" class="btn btn--gallery"><i class="fas fa-images"></i> View Gallery</a>
-                            </div>
-                        </div>
-                        <div class="club-item">
-                            <img src="induction-images/nss-drive.jpg" alt="NSS Social Drive" class="club-image">
-                            <div class="club-description">
-                                <h4>National Service Scheme (NSS)</h4>
-                                <span class="tagline">"Not Me, But You."</span>
-                                <p>The NSS unit connects our students with society, developing social consciousness and a spirit of selfless service. Our motto emphasizes that an individual's welfare is ultimately dependent on the welfare of the community as a whole.</p>
-                                <ul>
-                                    <li><i class="fas fa-hand-holding-heart"></i> Organizes community service events like blood donation camps.</li>
-                                    <li><i class="fas fa-leaf"></i> Leads environmental initiatives such as tree plantation drives.</li>
-                                    <li><i class="fas fa-bullhorn"></i> Conducts social awareness programs in local communities.</li>
-                                </ul>
-                                <a href="#gallery-nss" class="btn btn--gallery"><i class="fas fa-images"></i> View Gallery</a>
-                            </div>
-                        </div>
-
-                        <div class="club-item">
-                            <img src="induction-images/ncc-parade.jpg" alt="NCC Parade" class="club-image">
-                            <div class="club-description">
-                                <h4>National Cadet Corps (NCC)</h4>
-                                <span class="tagline">"Unity and Discipline."</span>
-                                <p>The NCC is instrumental in shaping students into disciplined, patriotic, and responsible leaders. It aims to create a pool of organized, trained, and motivated youth to serve the nation in various capacities, both in military and civilian life.</p>
-                                <ul>
-                                    <li><i class="fas fa-shield-alt"></i> Provides basic military training, including drill and map reading.</li>
-                                    <li><i class="fas fa-flag"></i> Instills discipline and patriotism through parades and national events.</li>
-                                    <li><i class="fas fa-campground"></i> Organizes adventure camps to build courage and leadership.</li>
-                                </ul>
-                                <a href="#gallery-ncc" class="btn btn--gallery"><i class="fas fa-images"></i> View Gallery</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3>Event Gallery</h3>
-                    <section class="gallery-section" id="gallery-jeevan-kaushal">
-                        <h4>Jeevan Kaushal Club Activities</h4>
+                    <section class="gallery-section" id="gallery-main">
+                        <h3>Induction Program Gallery</h3>
                         <div class="gallery-grid">
-                             <div class="gallery-item"><img src="induction-images/j1.png" alt="Life Skills Workshop"></div>
+                            <div class="gallery-item"><img src="induction-images/j1.png" alt="Life Skills Workshop by JK Club"></div>
                             <div class="gallery-item"><img src="induction-images/j3.png" alt="Student Interaction Session"></div>
                             <div class="gallery-item"><img src="induction-images/j2.png" alt="Team Building Activity"></div>
-                        </div>
-                    </section>
-                    
-                    <section class="gallery-section" id="gallery-ecell">
-                        <h4>E-Cell Activities</h4>
-                        <div class="gallery-grid">
-                            <div class="gallery-item"><img src="induction-images/e1.png" alt="E-Cell Pitching Event"></div>
-                            <div class="gallery-item"><img src="induction-images/e2.png" alt="E-Cell Workshop"></div>
-                            <div class="gallery-item"><img src="induction-images/e3.png" alt="E-Cell Team Discussion"></div>
-                        </div>
-                    </section>
+                            <div class="gallery-item"><img src="induction-images/class1.png" alt="Team Building Activity"></div>
+                            <div class="gallery-item"><img src="induction-images/class2.png" alt="Team Building Activity"></div>
+                            <div class="gallery-item"><img src="induction-images/class3.png" alt="Team Building Activity"></div>
+                        
 
-                    <section class="gallery-section" id="gallery-innovation">
-                        <h4>Innovation Club Projects</h4>
-                        <div class="gallery-grid">
-                            <div class="gallery-item"><img src="induction-images/i1.png" alt="Robotics Project"></div>
-                            <div class="gallery-item"><img src="induction-images/i2.png" alt="Hackathon Winners"></div>
-                            <div class="gallery-item"><img src="induction-images/i3.png" alt="IoT Workshop"></div>
-                        </div>
-                    </section>
-
-                    <section class="gallery-section" id="gallery-nss">
-                        <h4>NSS Community Service</h4>
-                        <div class="gallery-grid">
-                            <div class="gallery-item"><img src="induction-images/nss1.png" alt="NSS Blood Donation Camp"></div>
-                            <div class="gallery-item"><img src="induction-images/nss2.png" alt="NSS Plantation Drive"></div>
-                            <div class="gallery-item"><img src="induction-images/nss3.png" alt="NSS Volunteers"></div>
-                        </div>
-                    </section>
-
-                       <section class="gallery-section" id="gallery-ncc">
-                        <h4>NCC Training & Events</h4>
-                        <div class="gallery-grid">
-                            <div class="gallery-item"><img src="induction-images/ncc1.png" alt="NCC Parade Practice"></div>
-                            <div class="gallery-item"><img src="induction-images/ncc2.png" alt="NCC Cadets at a Camp"></div>
-                            <div class="gallery-item"><img src="induction-images/ncc3.png" alt="NCC Official Ceremony"></div>
+                            <div class="gallery-item"><img src="induction-images/i1.png" alt="Students at an induction event"></div>
+                            <div class="gallery-item"><img src="induction-images/i2.png" alt="Students at an induction event"></div>
+                            <div class="gallery-item"><img src="induction-images/s1.png" alt="Students at an induction event"></div>
+                            <div class="gallery-item"><img src="induction-images/s3.png" alt="Students at an induction event"></div>
+                            <div class="gallery-item"><img src="induction-images/yoga-s2.png" alt="Students at an induction event"></div>
+                            <div class="gallery-item"><img src="induction-images/yoga-s3.png" alt="Students at an induction event"></div>
                         </div>
                     </section>
                 </div>
