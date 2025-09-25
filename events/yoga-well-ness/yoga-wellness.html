@@ -55,29 +55,28 @@
             margin: 0 auto;
         }
 
-        /* --- HEADER & NAVIGATION (UPDATED) --- */
+        /* --- HEADER & NAVBAR (INDEX STYLE + BACK ARROW) --- */
         .header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: static; /* This is the same as your index page */
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
+        
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            
         }
 
+        /* ADDED: Styles to align the new arrow and the logo */
         .navbar-brand {
             display: flex;
             align-items: center;
-            gap: 15px; /* Space between arrow and logo */
+            gap: 5px; 
         }
 
+        /* ADDED: Styles for the back arrow button */
         .nav-back-arrow {
             display: inline-flex;
             align-items: center;
@@ -89,7 +88,6 @@
             text-decoration: none;
             border-radius: 50%;
             background-color: #fff;
-            border: 1px solid #e1e8ed;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
         }
@@ -101,30 +99,22 @@
             border-color: var(--primary-color);
         }
 
-        .navbar-brand .brand-link {
+        .navbar-brand .logo {
             display: flex;
             align-items: center;
+            gap: 10px;
             text-decoration: none;
         }
 
-        .brand-logo {
+        .logo img {
             height: 60px;
-            width: 60px;
-            margin-right: 15px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--primary-color);
         }
 
-        .brand-info .college-name {
+        .logo span {
+            font-size: 1.2em;
             font-weight: 600;
-            font-size: 1.1em;
-            color: var(--dark-text);
-        }
-
-        .brand-info .club-name {
-            font-size: 0.95em;
-            color: var(--muted-text);
+            color: #111111;
         }
 
         .navbar-menu {
@@ -138,39 +128,29 @@
 
         .nav-link {
             text-decoration: none;
-            color: var(--muted-text);
+            color: #666666;
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
             padding-bottom: 5px;
         }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--primary-color);
-            transition: width 0.3s ease;
+        
+        .nav-link.active {
+            color: #109c91;
+            border-bottom: 2px solid #109c91;
         }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary-color);
-        }
-        .nav-link:hover::after, .nav-link.active::after {
-            width: 100%;
+        .nav-link:hover {
+            color: #109c91;
         }
 
         .mobile-menu-toggle { display: none; }
 
+        /* --- All other styles remain the same --- */
 
-        /* --- HERO SECTION --- */
         .event-hero {
             position: relative;
             height: 55vh;
-            background: url('yoga-images/y9.jpg') no-repeat center center/cover; /* Corrected Path */
+            background: url('yoga-images/y9.jpg') no-repeat center center/cover;
             border-radius: 0 0 20px 20px;
             display: flex;
             align-items: center;
@@ -199,6 +179,7 @@
             margin: 0 0 10px 0;
             font-weight: 700;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+            color: #fff;
         }
 
         .hero-content p {
@@ -207,7 +188,6 @@
             font-weight: 300;
         }
 
-        /* --- SPEAKER PROFILE --- */
         .speaker-profile {
             text-align: center;
             background: #fff;
@@ -247,7 +227,6 @@
             line-height: 1.7;
         }
         
-        /* --- HIGHLIGHTS SECTION --- */
         .highlight-item {
             display: flex;
             align-items: center;
@@ -300,7 +279,6 @@
             object-fit: cover;
         }
 
-        /* --- GALLERY SECTION --- */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -328,7 +306,6 @@
             filter: brightness(1.05);
         }
 
-        /* --- MODAL GALLERY --- */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.85);
@@ -366,8 +343,6 @@
         .modal-prev { left: 15px; }
         .modal-next { right: 15px; }
         
-
-        /* --- FOOTER --- */
         .footer {
             background: #2c2c2c;
             color: #ccc;
@@ -376,13 +351,11 @@
             margin-top: 60px;
         }
 
-        /* --- ANIMATIONS --- */
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- RESPONSIVE DESIGN --- */
         @media screen and (max-width: 992px) {
             .navbar-menu { display: none; }
             .mobile-menu-toggle {
@@ -397,7 +370,7 @@
                 display: flex;
                 flex-direction: column;
                 position: absolute;
-                top: 90px;
+                top: 80px;
                 left: 0;
                 width: 100%;
                 background: #fff;
@@ -412,6 +385,7 @@
             .navbar-menu.active .nav-link {
                 display: block;
                 padding: 15px 0;
+                border-bottom: none;
             }
         }
 
@@ -435,20 +409,22 @@
     </style>
 </head>
 <body>
+    
     <header class="header">
         <div class="container">
             <nav class="navbar">
                 <div class="navbar-brand">
+                    
                     <a href="../../INDEX.html#events" class="nav-back-arrow" title="Back to All Events">
                         <i class="fas fa-arrow-left"></i>
                     </a>
-                    <a href="../../INDEX.html" class="brand-link">
-                        <img src="../../images/jk.jpg" alt="KITS Logo" class="brand-logo">
-                        <div class="brand-info">
-                            <span class="college-name">KKR & KSR Institute of Technology & Sciences</span>
-                            <span class="club-name"><br>Jeevan Kaushal Club</span>
-                        </div>
-                    </a>
+                    
+                    <div class="logo">
+                        <a href="../../INDEX.html" style="display: flex; align-items: center; text-decoration: none;">
+                            <img src="../../images/jk.jpg" alt="Logo" style="height: 60px; border-radius: 50%;">
+                            <span style="margin-left: 10px; font-size: 0.9em; font-weight: 600; color: #111111;">Jeevan Kaushal Club</span>
+                        </a>
+                    </div>
                 </div>
                 <ul class="navbar-menu" id="navbar-menu">
                     <li><a href="../../INDEX.html#home" class="nav-link">Home</a></li>
